@@ -2,19 +2,18 @@
 
 namespace Database\Seeders;
 
-use App\Models\Membro;
 use Illuminate\Database\Seeder;
+use App\Models\Membro;
 
-class DatabaseSeeder extends Seeder
+class MembroSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         Membro::factory(50)->create();
     }
 }
