@@ -38,7 +38,10 @@ class MembroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        Membro::create($request->all());
+
+        return redirect()->route('membros.index');
     }
 
     /**

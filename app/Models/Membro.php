@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Membro extends Model
 {
     use HasFactory;
+    protected $fillable = ['nome'];
 }
