@@ -14,35 +14,37 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            <div class="container mx-auto h-full flex flex-1 login justify-center items-center">
+                <div class="w-full max-w-lg">
+                    <div class="leading-loose">
+                        <form class="max-w-xl m-4 p-10 bg-white rounded shadow-xl">
+                            <p class="text-gray-800 font-medium text-center text-lg font-bold">Login</p>
+                            <div class="">
+                                <label class="block text-sm text-gray-00" for="email" type="email" name="email" :value="old('email')" required autofocus>E-mail</label>
+                                <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" id="email" name="email" type="text" required="" placeholder="E-mail" aria-label="email">
+                            </div>
+                            <div class="mt-2">
+                                <label class="block text-sm text-gray-600" for="password" value="{{ __('Password') }}">Senha</label>
+                                <input class="w-full px-5  py-1 text-gray-700 bg-gray-200 rounded" id="password" name="password" type="password" name="password" required autocomplete="current-password" placeholder="*******" aria-label="password">
+                            </div>
+                            <div class="mt-4 items-center justify-between">
+                                @if (Route::has('password.request'))
+                                <button class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit">Login</button>
+                                <a class="inline-block right-0 align-baseline  font-bold text-sm text-500 hover:text-blue-800" href="{{ route('password.request') }}">
+                                    Forgot Password?
+                                </a>
+                                @endif
+                            </div>
+                            <a class="inline-block right-0 align-baseline font-bold text-sm text-500 hover:text-blue-800" href="{{route("register")}}">
+                                Not registered ?
+                            </a>
+                        </form>
 
-            <div>
-                <x-jet-label value="{{ __('Email') }}" />
-                <x-jet-input class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label value="{{ __('Password') }}" />
-                <x-jet-input class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
-
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <input type="checkbox" class="form-checkbox" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-jet-button class="ml-4">
-                    {{ __('Login') }}
-                </x-jet-button>
+                    </div>
+                </div>
             </div>
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
+
+
